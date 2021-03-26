@@ -1,0 +1,8 @@
+branch
+	id, country, state
+
+loan
+	id, branch_id, value, is_active
+
+SQL Query:
+	SELECT b.country, b.state, (SELECT AVG(l2.value) AS Average FROM loan l2 WHERE l2.is = l.id) FROM branch b, loan l WHERE b.id = l.branch_id AND l.is_active = 1 
